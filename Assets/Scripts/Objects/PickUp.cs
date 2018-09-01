@@ -18,12 +18,12 @@ public class PickUp : MonoBehaviour {
         Inventory inventory = other.GetComponent<Inventory>();
 
         if (inventory) {
-            inventory.AddItem(this.sprite, this.weight);
 
             if (this.onPicked != null) {
                 this.onPicked();
             }
 
+            inventory.AddItem(this);
             Destroy(this);
         }
     }

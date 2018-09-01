@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23264199213731932}
   - component: {fileID: 64955677709951612}
   - component: {fileID: 114591119201589966}
+  - component: {fileID: 114647339816909950}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -37,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206497407163242}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 1.25, z: 0}
-  m_LocalScale: {x: 0.25, y: 1, z: 0.25}
+  m_LocalPosition: {x: 0, y: 1.35, z: -0}
+  m_LocalScale: {x: 0.16, y: 1, z: 0.27}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -110,4 +111,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106752da3359943719132769c255efeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 20
+--- !u!114 &114647339816909950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206497407163242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1bf11185155474684342ca0cda0088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  THROWING_SPEED: 3
+  Brick: {fileID: 0}
+  Target: {fileID: 0}

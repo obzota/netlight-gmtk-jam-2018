@@ -6,7 +6,7 @@ public class Thrower : MonoBehaviour {
 
     public float THROWING_SPEED = 3.0f;
 
-    public GameObject Brick;
+    public Throwable Brick;
     public GameObject Target;
 
 	// Use this for initialization
@@ -16,6 +16,11 @@ public class Thrower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (this.Brick == null)
+            return;
+            
+        Brick.gameObject.transform.position = this.gameObject.transform.position;
+
         if (Input.GetKey(KeyCode.Space))
             Throw();
 	}
@@ -24,15 +29,10 @@ public class Thrower : MonoBehaviour {
         if (this.Brick == null)
             return;
 
-        Thrown behavior = Brick.GetComponent<Thrown>();
-        if (behavior != null)
-            Destroy(behavior);
+        Brick.start = this.gameObject.transform.position;
+        Brick.end = this.Target.transform.position;
 
-        behavior = this.Brick.AddComponent<Thrown>();
-
-        behavior._start = this.gameObject.transform.position;
-        behavior._end = this.Target.transform.position;
-        behavior._speed = THROWING_SPEED;
+        Brick.Launch();
 
         this.Brick = null;
 

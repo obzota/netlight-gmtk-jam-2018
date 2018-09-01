@@ -5,6 +5,7 @@ using UnityEngine;
 public class Marker : MonoBehaviour {
 
     private MeshRenderer objectRenderer;
+    public GameObject field;
 
     void Start() {
         this.objectRenderer = this.GetComponent<MeshRenderer>();
@@ -20,7 +21,7 @@ public class Marker : MonoBehaviour {
 
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit)) {
-            this.SetMarkerPosition(hit.point);
+            this.SetMarkerPosition(new Vector3(hit.point.x, hooveringHeight(), hit.point.z));
             this.ShowMarker();
         }
 
@@ -39,6 +40,11 @@ public class Marker : MonoBehaviour {
 
     private void SetMarkerPosition(Vector3 position) {
         this.transform.position = position;
+    }
+
+    private float hooveringHeight()
+    {
+        return field.transform.position.y + this.gameObject.transform.localScale.y / 2.0f;
     }
 
     private Ray CreateRayFromCameraToWorld(Vector3 windowPosition) {
