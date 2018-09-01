@@ -4,7 +4,5 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "PickUp", order = 1)]
 public class PickUpData : ScriptableObject {
-    public string pickUpName;
-    public Sprite sprite;
-    public float weight;
+    public Material material;
 }

@@ -28,21 +28,14 @@ public class PickUpDistributer : MonoBehaviour {
     private void SpawnPickUp() {
         PickUpData pickUpType = this.SelectRandomPickUpType();
         Vector3 spawnPosition = this.SelectRandomSpawnLocation();
-        Vector3 pickUpPosition = this.GetSurfacePositionForSprite(pickUpType.sprite, spawnPosition);
 
-        GameObject pickUpGameObject = Instantiate(this.pickupPrefab, pickUpPosition, Quaternion.identity);
+        GameObject pickUpGameObject = Instantiate(this.pickupPrefab, spawnPosition, Quaternion.identity);
         PickUp pickUp = pickUpGameObject.GetComponent<PickUp>();
 
         pickUp.SetOnPicked(this.OnPickUpDestoryed);
-        pickUp.SetSprite(pickUpType.sprite);
-        pickUp.SetWeight(pickUpType.weight);
+        pickUp.SetMaterial(pickUpType.material);
 
         this.currentNumberOfPickUps++;
-    }
-
-    private Vector3 GetSurfacePositionForSprite(Sprite sprite, Vector3 position) {
-        float ySurfacePosition = sprite.bounds.extents.y;
-        return new Vector3(position.x, ySurfacePosition, position.z);
     }
 
     private PickUpData SelectRandomPickUpType() {

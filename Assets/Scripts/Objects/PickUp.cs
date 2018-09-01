@@ -7,24 +7,16 @@ public class PickUp : MonoBehaviour {
     public delegate void OnPicked();
 
     [SerializeField]
-    private float weight;
-
-    [SerializeField]
-    private Sprite sprite;
+    private Material material;
 
     private OnPicked onPicked = null;
 
     void OnTriggerEnter(Collider other) {
+        Debug.Log("Collision!");
         Inventory inventory = other.GetComponent<Inventory>();
 
         if (inventory) {
-
-            if (this.onPicked != null) {
-                this.onPicked();
-            }
-
-            inventory.AddItem(this);
-            Destroy(this);
+            this.HandlePickingUp(inventory);
         }
     }
 
@@ -32,14 +24,21 @@ public class PickUp : MonoBehaviour {
         this.onPicked = onPicked;
     }
 
-    public void SetWeight(float weight) {
-        this.weight = weight;
+    public void SetMaterial(Material material) {
+        this.material = material;
+
+        Sprite3D sprite3D = this.GetComponentInChildren<Sprite3D>();
+        sprite3D.SetMaterial(this.material);
     }
 
-    public void SetSprite(Sprite sprite) {
-        this.sprite = sprite;
+    private void HandlePickingUp(Inventory inventory) {
 
-        SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = this.sprite;
+        if (this.onPicked != null) {
+            this.onPicked();
+        }
+
+        this.GetComponentInChildren<Sprite3D>().Visible = false;
+        inventory.AddItem(this);
+        Destroy(this);
     }
 }

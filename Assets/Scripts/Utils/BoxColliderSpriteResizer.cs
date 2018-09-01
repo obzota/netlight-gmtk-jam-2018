@@ -12,9 +12,9 @@ public class BoxColliderSpriteResizer : MonoBehaviour {
     }
 
     private void ResizeBoxColliderToFitSprite() {
-        Bounds spriteBounds = this.GetComponent<SpriteRenderer>().sprite.bounds;
+        Bounds sprite3DBounds = this.GetComponentInChildren<Sprite3D>().GetBounds();
 
         BoxCollider boxCollider = this.GetComponent<BoxCollider>();
-        boxCollider.size = new Vector3(spriteBounds.size.x, spriteBounds.size.y, this.depth);
+        boxCollider.size = new Vector3(sprite3DBounds.size.x, sprite3DBounds.size.z, this.depth);
     }
 }

@@ -9,8 +9,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62e9093be2a9b4f21a684c49cc92a03f, type: 3}
-  m_Name: PlaceHolderPickUp
+  m_Name: PlaceholderPickUp
   m_EditorClassIdentifier: 
-  pickUpName: PlaceholderPickUp
-  sprite: {fileID: 21300000, guid: 6b81d1a2144fa47c3b8ce2586df717dc, type: 3}
-  weight: 2
+  material: {fileID: 2100000, guid: 61d4458e8ecef4a32ac3bc19ff32541a, type: 2}

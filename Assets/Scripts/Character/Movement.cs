@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour {
     }
 
     private Vector3 GetXInput() {
-        return new Vector3((-1.0f) * Input.GetAxis("Horizontal"), 0.0f, 0.0f);
+        return new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
     }
 
     private Vector3 GetYInput() {
@@ -26,6 +26,6 @@ public class Movement : MonoBehaviour {
     }
 
     private Vector3 GetZInput() {
-        return new Vector3(0.0f, (-1.0f) * Input.GetAxis("Vertical"), 0.0f);
+        return new Vector3(0.0f, 0.0f, Input.GetAxis("Vertical"));
     }
 }
