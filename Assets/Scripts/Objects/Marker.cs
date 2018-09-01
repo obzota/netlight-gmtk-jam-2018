@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Marker : MonoBehaviour {
 
-    private MeshRenderer renderer;
+    private MeshRenderer objectRenderer;
 
     void Start() {
-        this.renderer = this.GetComponent<MeshRenderer>();
+        this.objectRenderer = this.GetComponent<MeshRenderer>();
     }
 
     void FixedUpdate () {
@@ -30,11 +30,11 @@ public class Marker : MonoBehaviour {
     }
 
     private void HideMarker() {
-        this.renderer.enabled = false;
+        this.objectRenderer.enabled = false;
     }
 
     private void ShowMarker() {
-        this.renderer.enabled = true;
+        this.objectRenderer.enabled = true;
     }
 
     private void SetMarkerPosition(Vector3 position) {
