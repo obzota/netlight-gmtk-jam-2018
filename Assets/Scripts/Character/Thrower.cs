@@ -16,6 +16,11 @@ public class Thrower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (this.Brick == null)
+            return;
+            
+        Brick.gameObject.transform.position = this.gameObject.transform.position;
+
         if (Input.GetKey(KeyCode.Space))
             Throw();
 	}

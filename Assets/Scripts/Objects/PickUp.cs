@@ -21,7 +21,7 @@ public class PickUp : MonoBehaviour {
         Inventory inventory = other.GetComponent<Inventory>();
 
         if (inventory) {
-            inventory.AddItem(this.pickupName, this.weight);
+            inventory.AddItem(this);
             Destroy(this);
         }
     }
