@@ -26,9 +26,9 @@ public class Throwable : MonoBehaviour {
         maxHeight = (start - end).magnitude/2;
     }
 
-    private void OnTriggerEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if ( (1 << collision.gameObject.layer & targetLayer.value) != 0) {
+        if ( (1 << other.gameObject.layer & targetLayer.value) != 0) {
             Destroy(this);
         }
             
