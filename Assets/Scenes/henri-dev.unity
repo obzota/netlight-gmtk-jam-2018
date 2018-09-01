@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 592933571}
   - component: {fileID: 592933570}
   - component: {fileID: 592933573}
+  - component: {fileID: 592933574}
   m_Layer: 0
   m_Name: PickUp
   m_TagString: Untagged
@@ -238,7 +239,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 592933569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.47, z: -2.81}
+  m_LocalPosition: {x: -1.23, y: 4.52, z: -2.86}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -256,6 +257,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   depth: 0.4
+--- !u!114 &592933574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 592933569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1428a93f22edd47ec8249c2b803b752f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1055270803
 Prefab:
   m_ObjectHideFlags: 0
