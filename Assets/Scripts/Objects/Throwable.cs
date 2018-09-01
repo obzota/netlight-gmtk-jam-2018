@@ -9,6 +9,7 @@ public class Throwable : MonoBehaviour {
     public float travelingTime = 2;
     private float traveledTime = 0.0f;
     private bool isTraveling = false;
+    public LayerMask targetLayer = -1;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +26,8 @@ public class Throwable : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        if ( (1 << collision.gameObject.layer & targetLayer.value) != 0)
+            Destroy(this);
     }
 
     // Update is called once per frame
