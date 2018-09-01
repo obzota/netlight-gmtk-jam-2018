@@ -7,6 +7,7 @@ public class Throwable : MonoBehaviour {
     public Vector3 start;
     public Vector3 end;
     public float travelingTime = 2;
+    public float maxHeight = 10;
     private float traveledTime = 0.0f;
     private bool isTraveling = false;
     public LayerMask targetLayer = -1;
@@ -22,12 +23,15 @@ public class Throwable : MonoBehaviour {
         travelingTime = 2.0f;
         traveledTime = 0.0f;
         isTraveling = true;
+        maxHeight = (start - end).magnitude/2;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collision collision)
     {
-        if ( (1 << collision.gameObject.layer & targetLayer.value) != 0)
+        if ( (1 << collision.gameObject.layer & targetLayer.value) != 0) {
             Destroy(this);
+        }
+            
     }
 
     // Update is called once per frame
@@ -45,6 +49,6 @@ public class Throwable : MonoBehaviour {
     }
 
     protected Vector3 LerpPosition(Vector3 start, Vector3 end, float ratio) {
-        return start + (end - start) * ratio + (4*ratio*(1-ratio)) * Vector3.up; 
+        return start + (end - start) * ratio + (4*ratio*(1-ratio)) * Vector3.up * maxHeight; 
     }
 }

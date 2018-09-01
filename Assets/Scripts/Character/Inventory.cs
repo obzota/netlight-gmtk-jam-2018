@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour {
 
-    private struct Item {
-        public string name;
-        public float weight;
-
-        public Item(string name, float weight) {
-            this.name = name;
-            this.weight = weight;
-        }
-    }
-
-    private IList<Item> items;
+    private IList<Throwable> items;
 
     void Start() {
-        this.items = new List<Item>();
+        this.items = new List<Throwable>();
     }
 
-    public void AddItem(string name, float weight) {
-        Item item = new Item(name, weight);
+    public void AddItem(PickUp item) {
+        Throwable _item = item.gameObject.AddComponent<Throwable>();
+        AddItem(_item);
+    }
+
+    public void AddItem(Throwable item) {
         this.items.Add(item);
+        item.gameObject.SetActive(false);
+    }
+
+    public Throwable Retrieve(){
+        var item = items[0];
+        items.RemoveAt(0);
+        return item;
     }
 }
