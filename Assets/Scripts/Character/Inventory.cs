@@ -5,11 +5,11 @@ using UnityEngine;
 public class Inventory : MonoBehaviour {
 
     private struct Item {
-        public string name;
+        public Sprite sprite;
         public float weight;
 
-        public Item(string name, float weight) {
-            this.name = name;
+        public Item(Sprite sprite, float weight) {
+            this.sprite = sprite;
             this.weight = weight;
         }
     }
@@ -20,8 +20,8 @@ public class Inventory : MonoBehaviour {
         this.items = new List<Item>();
     }
 
-    public void AddItem(string name, float weight) {
-        Item item = new Item(name, weight);
+    public void AddItem(Sprite sprite, float weight) {
+        Item item = new Item(sprite, weight);
         this.items.Add(item);
     }
 }

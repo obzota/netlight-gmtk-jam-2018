@@ -9,52 +9,58 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1782196577611464}
+  m_RootGameObject: {fileID: 1832517111434908}
   m_IsPrefabAsset: 1
---- !u!1 &1782196577611464
+--- !u!1 &1832517111434908
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4190209293163728}
-  - component: {fileID: 114247810058774140}
+  - component: {fileID: 4766858435096716}
+  - component: {fileID: 65358549678309962}
+  - component: {fileID: 114178134641185012}
   m_Layer: 0
-  m_Name: PickUpDistributer
+  m_Name: PickUpSpawnArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4190209293163728
+--- !u!4 &4766858435096716
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1782196577611464}
+  m_GameObject: {fileID: 1832517111434908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114247810058774140
+--- !u!65 &65358549678309962
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832517111434908}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 1, z: 4}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114178134641185012
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1782196577611464}
+  m_GameObject: {fileID: 1832517111434908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f139a78086db40b9b2a853f575c9c09, type: 3}
+  m_Script: {fileID: 11500000, guid: 9676ea73cfdce4d17b682941054dcaaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupPrefab: {fileID: 1515736599364286, guid: 279ace5c35c4c44c681201029e109528,
-    type: 2}
-  pickUpTypes:
-  - {fileID: 11400000, guid: 18908434985854de9b66a669b5813b20, type: 2}
-  spawnAreas:
-  - {fileID: 0}
-  targetNumberOfPickUps: 5

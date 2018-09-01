@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour {
 
-    [SerializeField]
-    private string pickupName;
+    public delegate void OnPicked();
 
     [SerializeField]
     private float weight;
@@ -13,20 +12,33 @@ public class PickUp : MonoBehaviour {
     [SerializeField]
     private Sprite sprite;
 
-    void Start() {
-        this.SetSprite();
-    }
+    private OnPicked onPicked = null;
 
     void OnTriggerEnter(Collider other) {
         Inventory inventory = other.GetComponent<Inventory>();
 
         if (inventory) {
-            inventory.AddItem(this.pickupName, this.weight);
+            inventory.AddItem(this.sprite, this.weight);
+
+            if (this.onPicked != null) {
+                this.onPicked();
+            }
+
             Destroy(this);
         }
     }
 
-    private void SetSprite() {
+    public void SetOnPicked(OnPicked onPicked) {
+        this.onPicked = onPicked;
+    }
+
+    public void SetWeight(float weight) {
+        this.weight = weight;
+    }
+
+    public void SetSprite(Sprite sprite) {
+        this.sprite = sprite;
+
         SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = this.sprite;
     }

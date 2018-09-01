@@ -78,7 +78,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7093872c022c24206af5e392aca56f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupName: pickup-name
   weight: 1
   sprite: {fileID: 21300000, guid: 6b81d1a2144fa47c3b8ce2586df717dc, type: 3}
 --- !u!114 &114865773350132330
