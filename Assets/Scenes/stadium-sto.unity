@@ -206,6 +206,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1959070255985386, guid: 2d7460e49adc940628a940ccef8c8d11,
     type: 2}
   m_PrefabInternal: {fileID: 518709626}
+--- !u!114 &636056099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 636056098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4ebc39662c7428f80828d0e15dfebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: {x: 0, y: 0, z: 0}
+  end: {x: 0, y: 0, z: 0}
+  travelingTime: 2
 --- !u!1001 &665579880
 Prefab:
   m_ObjectHideFlags: 0
@@ -331,7 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   THROWING_SPEED: 3
-  Brick: {fileID: 636056098}
+  Brick: {fileID: 636056099}
   Target: {fileID: 1422968620}
 --- !u!1 &1422968620 stripped
 GameObject:
