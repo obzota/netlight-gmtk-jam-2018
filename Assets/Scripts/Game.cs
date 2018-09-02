@@ -17,6 +17,9 @@ public class Game : MonoBehaviour {
     [SerializeField]
     private float timer;
 
+    [SerializeField]
+    private AIController AI;
+
 
     // UI
     public Announcements board;
@@ -33,6 +36,7 @@ public class Game : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        AI.Wait();
         interrupt = gameObject.AddComponent<Pause>();
         ball.SetActive(false);
         WaitForPlayerInput();
@@ -93,7 +97,7 @@ public class Game : MonoBehaviour {
                 }
                 break;
             case GameState.END:
-                return;
+                break;
             case GameState.PLAY:
                 timer -= Time.deltaTime;
                 if (timer < 0)
@@ -112,11 +116,21 @@ public class Game : MonoBehaviour {
                 break;
         }
         UIUpdate();
+        AIUpdate();
 	}
 
     void UIUpdate(){
         scorePanel.BlueScore = blueScore;
         scorePanel.RedScore = redScore;
+    }
+
+    void AIUpdate(){
+        if(AllowCharacterControl()){
+            AI.Play();
+        } else {
+            AI.Wait();
+        }
+
     }
 
     void End(){
