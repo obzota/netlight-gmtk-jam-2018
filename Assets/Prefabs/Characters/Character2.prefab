@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 23978124986216070}
   - component: {fileID: 33689846630370484}
   - component: {fileID: 114824005556317558}
+  - component: {fileID: 114056978611790392}
   m_Layer: 0
   m_Name: 3DSprite
   m_TagString: Untagged
@@ -147,6 +148,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114056978611790392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1934328182102362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3182e69ea83b46c2beeab03f8a5427a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animations:
+  - {fileID: 11400000, guid: b65d3ff4435a7482abaf3a7000d702c8, type: 2}
+  - {fileID: 11400000, guid: 2f5b1b1005c484bed8f2e102a5c8e2c1, type: 2}
+  - {fileID: 11400000, guid: bec7da4ba8fc94064896e2b8981ea99e, type: 2}
 --- !u!114 &114087735161175144
 MonoBehaviour:
   m_ObjectHideFlags: 1
