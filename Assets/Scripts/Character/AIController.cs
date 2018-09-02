@@ -11,14 +11,14 @@ public class AIController : MonoBehaviour, IMovementProvider {
 
     private AIState aiState;
     private NavMeshAgent navMeshAgent;
-    private Inventory inventory;
+    private Thrower thrower;
 
     void Start () {
         this.aiState = AIState.LOOKING_FOR_PICKUP;
         this.navMeshAgent = this.GetComponent<NavMeshAgent>();
 
-        this.inventory = this.GetComponent<Inventory>();
-        this.inventory.GotItemListener = this.OnFoundPickUp;
+        this.thrower = this.GetComponent<Thrower>();
+        this.thrower.GotItemListener = this.OnFoundPickUp;
 	}
 	
 	// Update is called once per frame

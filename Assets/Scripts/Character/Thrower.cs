@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Thrower : MonoBehaviour {
-    
+
+    public delegate void OnGotItem();
+
     public float THROWING_SPEED = 3.0f;
+
+    public OnGotItem GotItemListener {
+        get; set;
+    }
 
     public Throwable Brick;
     public GameObject Target;
@@ -31,6 +37,11 @@ public class Thrower : MonoBehaviour {
         if(this.Brick != null){
             return;
         }
+
+        if (this.GotItemListener != null) {
+            this.GotItemListener();
+        }
+
         this.Brick = obj.gameObject.AddComponent<Throwable>();
         Destroy(obj);
     }
