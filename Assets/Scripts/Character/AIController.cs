@@ -18,7 +18,7 @@ public class AIController : MonoBehaviour, IMovementProvider {
     private MaterialAnimator materialAnimator;
 
     void Start () {
-        this.aiState = AIState.LOOKING_FOR_PICKUP;
+        this.aiState = AIState.WAIT;
         this.navMeshAgent = this.GetComponent<NavMeshAgent>();
         this.materialAnimator = this.GetComponentInChildren<MaterialAnimator>();
 
