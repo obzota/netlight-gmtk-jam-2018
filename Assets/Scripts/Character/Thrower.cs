@@ -15,6 +15,7 @@ public class Thrower : MonoBehaviour {
     public Throwable Brick;
     public GameObject Target;
     public Vector3 throwableOffset = new Vector3(0, 0, -1);
+    public float cooldown = 0.2f;
 
 	// Use this for initialization
 	void Start () {

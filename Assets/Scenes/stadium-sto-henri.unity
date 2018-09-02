@@ -3461,16 +3461,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4174206995164900, guid: 657b66e56ca414bb5ac3af350f06af58, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4174206995164900, guid: 657b66e56ca414bb5ac3af350f06af58, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 135672433609426800, guid: 657b66e56ca414bb5ac3af350f06af58,
         type: 2}
       propertyPath: m_Radius
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 54384875117347348, guid: 657b66e56ca414bb5ac3af350f06af58,
         type: 2}
