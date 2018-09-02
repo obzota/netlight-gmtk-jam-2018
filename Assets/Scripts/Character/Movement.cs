@@ -34,6 +34,10 @@ public class Movement : MonoBehaviour {
 
     private void UpdateHorizontalDirection(Vector3 movement) {
 
+        if (Mathf.Abs(movement.x) < 0.01) {
+            return;
+        }
+
         if (movement.x >= 0) {
             this.horizontalDirection = HorizontalDirection.RIGHT;
         }
