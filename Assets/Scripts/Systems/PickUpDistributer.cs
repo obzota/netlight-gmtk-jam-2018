@@ -23,7 +23,7 @@ public class PickUpDistributer : MonoBehaviour {
 	
 	void Update () {
 		
-        if (this.currentNumberOfPickUps < this.targetNumberOfPickUps) {
+        if (this.GetNumberOfPickUps() < this.targetNumberOfPickUps) {
             this.SpawnPickUp();
         }
 	}
@@ -57,5 +57,9 @@ public class PickUpDistributer : MonoBehaviour {
 
     private void OnPickUpDestoryed() {
         this.currentNumberOfPickUps--;
+    }
+
+    private int GetNumberOfPickUps() {
+        return GameObject.FindGameObjectsWithTag("PickUp").Length;
     }
 }

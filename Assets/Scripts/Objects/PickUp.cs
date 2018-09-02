@@ -12,7 +12,6 @@ public class PickUp : MonoBehaviour {
     private OnPicked onPicked = null;
 
     void OnTriggerEnter(Collider other) {
-        Debug.Log("Trigger");
         Thrower thrower = other.GetComponent<Thrower>();
 
         if (thrower) {

@@ -208,7 +208,7 @@ Prefab:
     - target: {fileID: 114247810058774140, guid: 60a7076ca89694d28b2f0b43b0fc1ad1,
         type: 2}
       propertyPath: targetNumberOfPickUps
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 114247810058774140, guid: 60a7076ca89694d28b2f0b43b0fc1ad1,
         type: 2}
