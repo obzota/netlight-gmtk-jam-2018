@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIController : MonoBehaviour {
+public class AIController : MonoBehaviour, IMovementProvider {
 
     public enum AIState {
         LOOKING_FOR_PICKUP, GOING_TO_PICKUP, THROWING_PICKUP_AT_BALL
@@ -34,6 +34,10 @@ public class AIController : MonoBehaviour {
 
         }
 	}
+
+    Vector3 IMovementProvider.GetMovement() {
+        return this.navMeshAgent.velocity;
+    }
 
     private void SetGoalToFindNextPickUp() {
         GameObject targetPickUp = this.FindClosesPickUp();

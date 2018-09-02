@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 856985580}
   - component: {fileID: 856985575}
   - component: {fileID: 856985579}
+  - component: {fileID: 856985582}
   - component: {fileID: 856985577}
   - component: {fileID: 856985574}
   - component: {fileID: 856985578}
@@ -420,7 +421,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 856985573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0.5, z: 0}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children:
   - {fileID: 2124464297}
@@ -488,6 +489,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &856985582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 856985573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d13459bc2ed49279e49d6f380e9328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1289612438
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,7 +847,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4974879879495458, guid: ff3f162f5a18d42c19ada7e26b9a4a6e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4974879879495458, guid: ff3f162f5a18d42c19ada7e26b9a4a6e, type: 2}
       propertyPath: m_LocalPosition.z
