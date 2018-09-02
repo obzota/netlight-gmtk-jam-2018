@@ -215,6 +215,12 @@ Prefab:
       propertyPath: targetNumberOfPickUps
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114247810058774140, guid: 60a7076ca89694d28b2f0b43b0fc1ad1,
+        type: 2}
+      propertyPath: pickUpTypes.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 30d6160b00f364ca087861d5a5b8fe03,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a7076ca89694d28b2f0b43b0fc1ad1, type: 2}
   m_IsPrefabAsset: 0
@@ -343,8 +349,8 @@ Transform:
   - {fileID: 86344220}
   - {fileID: 940979125}
   - {fileID: 1490730906}
-  - {fileID: 1479167277}
   - {fileID: 1762300054}
+  - {fileID: 1479167277}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
