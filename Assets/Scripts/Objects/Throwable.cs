@@ -10,7 +10,7 @@ public class Throwable : MonoBehaviour {
     public float maxHeight = 10;
     private float traveledTime = 0.0f;
     private bool isTraveling = false;
-    public LayerMask targetLayer = -1;
+    public LayerMask targetLayer = 8;
 
 	// Use this for initialization
 	void Start () {
