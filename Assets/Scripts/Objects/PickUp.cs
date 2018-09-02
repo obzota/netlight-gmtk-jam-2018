@@ -16,6 +16,11 @@ public class PickUp : MonoBehaviour {
         Thrower thrower = other.GetComponent<Thrower>();
 
         if (thrower) {
+
+            if (this.onPicked != null) {
+                this.onPicked();
+            }
+
             thrower.PickItem(this);
         }
     }
