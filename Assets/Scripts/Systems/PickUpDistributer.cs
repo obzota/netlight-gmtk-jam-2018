@@ -16,6 +16,9 @@ public class PickUpDistributer : MonoBehaviour {
     [SerializeField]
     private int targetNumberOfPickUps;
 
+    [SerializeField]
+    private GameObject pickupContainer;
+
     private int currentNumberOfPickUps = 0;
 	
 	void Update () {
@@ -30,6 +33,9 @@ public class PickUpDistributer : MonoBehaviour {
         Vector3 spawnPosition = this.SelectRandomSpawnLocation();
 
         GameObject pickUpGameObject = Instantiate(this.pickupPrefab, spawnPosition, Quaternion.identity);
+        if (pickupContainer != null)
+            pickUpGameObject.transform.parent = pickupContainer.transform;
+        
         PickUp pickUp = pickUpGameObject.GetComponent<PickUp>();
 
         pickUp.SetOnPicked(this.OnPickUpDestoryed);
