@@ -575,6 +575,11 @@ Prefab:
       propertyPath: Target
       value: 
       objectReference: {fileID: 1758489924}
+    - target: {fileID: 195584156505194728, guid: 0e46cd197ba324c1fa650b6f5d7bc353,
+        type: 2}
+      propertyPath: m_Speed
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e46cd197ba324c1fa650b6f5d7bc353, type: 2}
   m_IsPrefabAsset: 0
@@ -1059,6 +1064,11 @@ Prefab:
         type: 2}
       propertyPath: throwableOffset.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114087735161175144, guid: fd946e1204401430d990cbb1b348da51,
+        type: 2}
+      propertyPath: speed
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd946e1204401430d990cbb1b348da51, type: 2}
