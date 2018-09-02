@@ -18,6 +18,10 @@ public class Game : MonoBehaviour {
     private float timer;
 
 
+    public Announcements board;
+    public Menu menu;
+    public ScoreUI scorePanel;
+
     enum GameState {BEGIN, PLAY, SCORE, PAUSE, END}
     private GameState current = GameState.BEGIN;
 
@@ -53,6 +57,7 @@ public class Game : MonoBehaviour {
         current = GameState.SCORE;
         interrupt.Begin(5.0f);
         GameInfo("goal " + gameObject.name);
+        board.MakeAnnouncement("GOAL !!!", 5);
         GameInfo("score: blue: " + blueScore);
         GameInfo("score: red: " + redScore);
     }
@@ -61,6 +66,7 @@ public class Game : MonoBehaviour {
         ball.transform.position = new Vector3(0, 10, 0);
         ball.SetActive(true);
         GameInfo("kickoff");
+        board.MakeAnnouncement("Game start !!!", 3.0f);
     }
 
     // Update is called once per frame
@@ -85,7 +91,13 @@ public class Game : MonoBehaviour {
                 }
                 break;
         }
+        UIUpdate();
 	}
+
+    void UIUpdate(){
+        scorePanel.BlueScore = blueScore;
+        scorePanel.RedScore = redScore;
+    }
 
     void End(){
         current = GameState.END;
