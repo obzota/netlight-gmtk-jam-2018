@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 54384875117347348}
   - component: {fileID: 135672433609426800}
   - component: {fileID: 114007627853315438}
+  - component: {fileID: 114617799132990618}
+  - component: {fileID: 114701090741900942}
   m_Layer: 0
   m_Name: Ball2
   m_TagString: Untagged
@@ -40,6 +42,7 @@ GameObject:
   - component: {fileID: 23687247079906656}
   - component: {fileID: 33450340442854262}
   - component: {fileID: 114099028259109448}
+  - component: {fileID: 114658913877691856}
   m_Layer: 0
   m_Name: 3DSprite
   m_TagString: Untagged
@@ -151,6 +154,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 180ece54e278440f6919e9d3a4635baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114617799132990618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100319588946382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d13459bc2ed49279e49d6f380e9328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114658913877691856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1846396488639872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3182e69ea83b46c2beeab03f8a5427a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animations:
+  - {fileID: 11400000, guid: c7355fa57f64e44de9e5dea9c614d22a, type: 2}
+  - {fileID: 11400000, guid: afa007db684814f3fbda90a784ee0b40, type: 2}
+--- !u!114 &114701090741900942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100319588946382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2c2094ff9604512ab80da0111bb045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &135672433609426800
