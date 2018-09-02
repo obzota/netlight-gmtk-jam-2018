@@ -12,16 +12,11 @@ public class PickUp : MonoBehaviour {
     private OnPicked onPicked = null;
 
     void OnTriggerEnter(Collider other) {
-        Thrower thrower = other.GetComponent<Thrower>();
+        this.DoPickUp(other);
+    }
 
-        if (thrower) {
-
-            if (this.onPicked != null) {
-                this.onPicked();
-            }
-
-            thrower.PickItem(this);
-        }
+    void OnTriggerStay(Collider other) {
+        this.DoPickUp(other);
     }
 
     public void SetOnPicked(OnPicked onPicked) {
@@ -33,6 +28,21 @@ public class PickUp : MonoBehaviour {
 
         Sprite3D sprite3D = this.GetComponentInChildren<Sprite3D>();
         sprite3D.SetMaterial(this.material);
+    }
+
+    private void DoPickUp(Collider other) {
+        Thrower thrower = other.GetComponent<Thrower>();
+
+        if (thrower)
+        {
+
+            if (this.onPicked != null)
+            {
+                this.onPicked();
+            }
+
+            thrower.PickItem(this);
+        }
     }
 
     private void HandlePickingUp(Inventory inventory) {
