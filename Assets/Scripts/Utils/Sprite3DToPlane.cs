@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Sprite3DToPlane : MonoBehaviour {
 
+    [SerializeField]
     private float yPlane;
 
 	void FixedUpdate () {

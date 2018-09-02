@@ -7,4 +7,5 @@ public class MaterialAnimation : ScriptableObject {
     public string animationName;
     public List<Sprite> spriteAnimationSheet;
     public float timeBetweenFrames;
+    public bool forcePlayOnce;
 }
