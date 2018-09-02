@@ -18,9 +18,13 @@ public class Game : MonoBehaviour {
     private float timer;
 
 
+    // UI
     public Announcements board;
     public Menu menu;
     public ScoreUI scorePanel;
+
+    // entity control
+    public PlayersStart spawner;
 
     enum GameState {BEGIN, PLAY, SCORE, PAUSE, END}
     private GameState current = GameState.BEGIN;
@@ -32,6 +36,7 @@ public class Game : MonoBehaviour {
         interrupt = gameObject.AddComponent<Pause>();
         Reset();
         GameInfo("start");
+        board.MakeAnnouncement("Game starts in 5s. Get ready!", 2.0f);
 	}
 
     public void Reset()
@@ -43,6 +48,7 @@ public class Game : MonoBehaviour {
         ball.SetActive(false);
         interrupt.Begin(5.0f);
         GameInfo("reset");
+        spawner.Reset();
     }
 
     public void Score(GameObject goal) {
