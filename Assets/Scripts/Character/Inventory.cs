@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour {
 
+    public delegate void OnGotItem();
+
     private IList<Throwable> items;
+
+    public OnGotItem GotItemListener {
+        get; set;
+    }
 
     void Start() {
         this.items = new List<Throwable>();
@@ -13,6 +19,10 @@ public class Inventory : MonoBehaviour {
     public void AddItem(PickUp item) {
         Throwable _item = item.gameObject.AddComponent<Throwable>();
         AddItem(_item);
+
+        if (this.GotItemListener != null) {
+            this.GotItemListener();
+        }
     }
 
     public void AddItem(Throwable item) {
