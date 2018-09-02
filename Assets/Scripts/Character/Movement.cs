@@ -13,6 +13,12 @@ public class Movement : MonoBehaviour {
 
     private HorizontalDirection horizontalDirection = HorizontalDirection.RIGHT;
 
+    public HorizontalDirection HDirection {
+        get {
+            return this.horizontalDirection;
+        }
+    }
+
     private MaterialAnimator animator;
 
     void Start() {
