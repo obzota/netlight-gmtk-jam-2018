@@ -7,7 +7,15 @@ public class Movement : MonoBehaviour, IMovementProvider {
     [SerializeField]
     private float speed;
 
+    private Thrower thrower;
     private Vector3 movement;
+
+    private MaterialAnimator materialAnimator;
+
+    void Start() {
+        this.thrower = this.GetComponent<Thrower>();
+        this.materialAnimator = this.GetComponentInChildren<MaterialAnimator>();
+    }
 
     Vector3 IMovementProvider.GetMovement() {
         return movement;
@@ -15,8 +23,17 @@ public class Movement : MonoBehaviour, IMovementProvider {
 
     void FixedUpdate () {
         this.ApplyMovement();
-	}
-        
+        this.CheckForThrow();
+    }
+
+    private void CheckForThrow() {
+
+        if (Input.GetKey(KeyCode.Space)) {
+            this.materialAnimator.SetCurrentAnimation("Throw");
+            this.thrower.Throw();
+        }
+    }
+
     private void ApplyMovement() {
         Vector3 input = this.GetXInput() + this.GetYInput() + this.GetZInput();
         this.movement = input * this.speed * Time.deltaTime;

@@ -6,16 +6,18 @@ using UnityEngine.AI;
 public class AIController : MonoBehaviour, IMovementProvider {
 
     public enum AIState {
-        LOOKING_FOR_PICKUP, GOING_TO_PICKUP, THROWING_PICKUP_AT_BALL
+        LOOKING_FOR_PICKUP, THROWING_PICKUP_AT_BALL
     }
 
     private AIState aiState;
     private NavMeshAgent navMeshAgent;
     private Thrower thrower;
+    private MaterialAnimator materialAnimator;
 
     void Start () {
         this.aiState = AIState.LOOKING_FOR_PICKUP;
         this.navMeshAgent = this.GetComponent<NavMeshAgent>();
+        this.materialAnimator = this.GetComponentInChildren<MaterialAnimator>();
 
         this.thrower = this.GetComponent<Thrower>();
         this.thrower.GotItemListener = this.OnFoundPickUp;
@@ -23,13 +25,13 @@ public class AIController : MonoBehaviour, IMovementProvider {
 	
 	// Update is called once per frame
 	void Update () {
+
         switch (this.aiState) {
             case AIState.LOOKING_FOR_PICKUP:
                 this.SetGoalToFindNextPickUp();
                 break;
             case AIState.THROWING_PICKUP_AT_BALL:
-                // TODO: Implement
-                this.aiState = AIState.LOOKING_FOR_PICKUP;
+                this.ThrowPickUp();
                 break;
 
         }
@@ -39,6 +41,12 @@ public class AIController : MonoBehaviour, IMovementProvider {
         return this.navMeshAgent.velocity;
     }
 
+    private void ThrowPickUp() {
+        this.materialAnimator.SetCurrentAnimation("Throw");
+        this.thrower.Throw();
+        this.aiState = AIState.LOOKING_FOR_PICKUP;
+    }
+
     private void SetGoalToFindNextPickUp() {
         GameObject targetPickUp = this.FindClosesPickUp();
         if (targetPickUp == null) {
@@ -46,7 +54,6 @@ public class AIController : MonoBehaviour, IMovementProvider {
         }
 
         this.navMeshAgent.destination = targetPickUp.transform.position;
-        this.aiState = AIState.GOING_TO_PICKUP;
     }
 
     private void OnFoundPickUp() {

@@ -27,9 +27,6 @@ public class Thrower : MonoBehaviour {
             return;
             
         Brick.gameObject.transform.position = this.gameObject.transform.position + throwableOffset;
-
-        if (Input.GetKey(KeyCode.Space))
-            Throw();
 	}
 
     public void PickItem(PickUp obj)
@@ -43,10 +40,11 @@ public class Thrower : MonoBehaviour {
         }
 
         this.Brick = obj.gameObject.AddComponent<Throwable>();
+        this.Brick.tag = "Untagged";
         Destroy(obj);
     }
 
-    void Throw(){
+    public void Throw() {
         if (this.Brick == null)
             return;
         
