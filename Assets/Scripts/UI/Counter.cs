@@ -36,7 +36,7 @@ public class Counter : MonoBehaviour {
     }
 
     private void RenderCounter() {
-        int asInt = (int) Mathf.Ceil(this.currentValue);
+        int asInt = Mathf.Max((int)Mathf.Ceil(this.currentValue), 0);
         this.counter.text = asInt.ToString();
     }
 }
