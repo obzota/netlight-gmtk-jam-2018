@@ -6,8 +6,11 @@ using UnityEngine.AI;
 public class AIController : MonoBehaviour, IMovementProvider {
 
     public enum AIState {
-        LOOKING_FOR_PICKUP, THROWING_PICKUP_AT_BALL
+        WAIT, LOOKING_FOR_PICKUP, THROWING_PICKUP_AT_BALL
     }
+
+    [SerializeField]
+    private GameObject ball;
 
     private AIState aiState;
     private NavMeshAgent navMeshAgent;
@@ -39,6 +42,21 @@ public class AIController : MonoBehaviour, IMovementProvider {
 
     Vector3 IMovementProvider.GetMovement() {
         return this.navMeshAgent.velocity;
+    }
+
+    public void Wait() {
+        this.aiState = AIState.WAIT;
+    }
+
+    public void Play() {
+
+        if (this.thrower.Brick != null) {
+            this.aiState = AIState.THROWING_PICKUP_AT_BALL;
+        }
+
+        else {
+            this.aiState = AIState.LOOKING_FOR_PICKUP;
+        }
     }
 
     private void ThrowPickUp() {

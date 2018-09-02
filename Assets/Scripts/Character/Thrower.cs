@@ -51,9 +51,15 @@ public class Thrower : MonoBehaviour {
         Brick.start = this.gameObject.transform.position;
         Brick.end = this.Target.transform.position;
 
+        this.ReadyBrickToThrow();
+
         Brick.Launch();
 
         this.Brick = null;
+    }
 
+    private void ReadyBrickToThrow() {
+        this.Brick.GetComponent<Rigidbody>().isKinematic = false;
+        this.Brick.GetComponent<BoxCollider>().isTrigger = false;
     }
 }
