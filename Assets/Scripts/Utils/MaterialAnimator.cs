@@ -25,11 +25,13 @@ public class MaterialAnimator : MonoBehaviour {
         }
     }
 
-    public void SetCurrentAnimation(string name) {
+    public void SetCurrentAnimation(string name, bool flipHorizontal = false) {
 
         if (this.isOnForcePlay) {
             return;
         }
+
+        this.SetFlipHorizontal(flipHorizontal);
 
         if (this.currentAnimation != null && name.Equals(this.currentAnimation.animationName)) {
             this.isOnForcePlay = this.currentAnimation.forcePlayOnce;
@@ -96,5 +98,15 @@ public class MaterialAnimator : MonoBehaviour {
         croppedTexture.Apply();
 
         return croppedTexture;
+    }
+
+    private void SetFlipHorizontal(bool flip) {
+        Vector2 scale = new Vector2(1, 1);
+
+        if (flip) {
+            scale = new Vector2(-1, 1);
+        }
+
+        this.meshRenderer.material.SetTextureScale("_MainTex", scale);
     }
 }

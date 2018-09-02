@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
 
+    public enum HorizontalDirection {
+        LEFT, RIGHT
+    }
+
     [SerializeField]
     private float speed;
+
+    private HorizontalDirection horizontalDirection = HorizontalDirection.RIGHT;
 
     private MaterialAnimator animator;
 
@@ -15,6 +21,7 @@ public class Movement : MonoBehaviour {
 
     void FixedUpdate () {
         Vector3 movement = this.ApplyMovement();
+        this.UpdateHorizontalDirection(movement);
         this.UpdateAnimation(movement);
 	}
 
@@ -25,14 +32,26 @@ public class Movement : MonoBehaviour {
         return movement;
     }
 
-    private void UpdateAnimation(Vector3 movement) {
+    private void UpdateHorizontalDirection(Vector3 movement) {
 
-        if (movement.magnitude > 0.01) {
-            this.animator.SetCurrentAnimation("Run");
+        if (movement.x >= 0) {
+            this.horizontalDirection = HorizontalDirection.RIGHT;
         }
 
         else {
-            this.animator.SetCurrentAnimation("Idle");
+            this.horizontalDirection = HorizontalDirection.LEFT;
+        }
+    }
+
+    private void UpdateAnimation(Vector3 movement) {
+        bool flipAnim = this.horizontalDirection == HorizontalDirection.LEFT;
+
+        if (movement.magnitude > 0.01) {
+            this.animator.SetCurrentAnimation("Run", flipAnim);
+        }
+
+        else {
+            this.animator.SetCurrentAnimation("Idle", flipAnim);
         }
     }
 
