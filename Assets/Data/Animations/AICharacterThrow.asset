@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 21300004, guid: 7d908f55f29f9476fbecf3d0b11c0be3, type: 3}
   - {fileID: 21300006, guid: 7d908f55f29f9476fbecf3d0b11c0be3, type: 3}
   timeBetweenFrames: 0.2
-  forcePlayOnce: 0
+  forcePlayOnce: 1
