@@ -825,6 +825,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 17c3bcd1c0a3b44939f59535cf0b1009, type: 2}
+    - target: {fileID: 1207569513967660, guid: 77c15e7e7f6fc4020b1d0ff546006ca3, type: 2}
+      propertyPath: m_TagString
+      value: field
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c15e7e7f6fc4020b1d0ff546006ca3, type: 2}
   m_IsPrefabAsset: 0
@@ -2293,6 +2297,7 @@ MonoBehaviour:
   board: {fileID: 0}
   menu: {fileID: 0}
   scorePanel: {fileID: 0}
+  spawner: {fileID: 0}
 --- !u!1 &1960031237
 GameObject:
   m_ObjectHideFlags: 0
