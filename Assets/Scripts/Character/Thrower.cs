@@ -60,6 +60,6 @@ public class Thrower : MonoBehaviour {
 
     private void ReadyBrickToThrow() {
         this.Brick.GetComponent<Rigidbody>().isKinematic = false;
-        this.Brick.GetComponent<BoxCollider>().isTrigger = false;
+        this.Brick.GetComponent<SphereCollider>().isTrigger = false;
     }
 }

@@ -21,10 +21,12 @@ GameObject:
   - component: {fileID: 4240017337679142}
   - component: {fileID: 54172229511293326}
   - component: {fileID: 65584405004745270}
+  - component: {fileID: 135056043465485170}
   - component: {fileID: 114852880359080450}
   - component: {fileID: 114865773350132330}
   - component: {fileID: 114403968261935596}
   - component: {fileID: 114251819303480896}
+  - component: {fileID: 114556079223983390}
   m_Layer: 0
   m_Name: PickUp
   m_TagString: PickUp
@@ -58,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 1515736599364286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 4970801984622160}
   m_Father: {fileID: 0}
@@ -126,7 +128,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1515736599364286}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
@@ -142,7 +144,7 @@ BoxCollider:
   m_GameObject: {fileID: 1515736599364286}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -180,6 +182,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1428a93f22edd47ec8249c2b803b752f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114556079223983390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1515736599364286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03523f902f642cfb6b757e1740a8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114852880359080450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,9 +211,21 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1515736599364286}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd38aaed6be8040dbbdcdaad91beadeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   depth: 2
+--- !u!135 &135056043465485170
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1515736599364286}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
