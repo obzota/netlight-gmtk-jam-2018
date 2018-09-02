@@ -15,7 +15,9 @@ public class Thrower : MonoBehaviour {
     public Throwable Brick;
     public GameObject Target;
     public Vector3 throwableOffset = new Vector3(0, 0, -1);
-    public float cooldown = 0.2f;
+
+    public float cooldown = 1.0f;
+    private float sinceLastThrow = 0.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -26,8 +28,10 @@ public class Thrower : MonoBehaviour {
 	void Update () {
         if (this.Brick == null)
             return;
-            
+
         Brick.gameObject.transform.position = this.gameObject.transform.position + throwableOffset;
+
+        this.sinceLastThrow += Time.deltaTime;
 	}
 
     public void PickItem(PickUp obj)
@@ -48,7 +52,11 @@ public class Thrower : MonoBehaviour {
     public void Throw() {
         if (this.Brick == null)
             return;
-        
+
+        if (this.cooldown > this.sinceLastThrow) {
+            return;
+        }
+
         Brick.start = this.gameObject.transform.position;
         Brick.end = this.Target.transform.position;
 
@@ -57,6 +65,8 @@ public class Thrower : MonoBehaviour {
         Brick.Launch();
 
         this.Brick = null;
+        this.sinceLastThrow = 0.0f;
+
     }
 
     private void ReadyBrickToThrow() {
