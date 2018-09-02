@@ -15,4 +15,5 @@ MonoBehaviour:
   spriteAnimationSheet:
   - {fileID: 21300004, guid: 2e8b6dd6058d1430681525e4cb534b04, type: 3}
   - {fileID: 21300006, guid: 2e8b6dd6058d1430681525e4cb534b04, type: 3}
-  timeBetweenFrames: 0.3
+  timeBetweenFrames: 0.2
+  forcePlayOnce: 1

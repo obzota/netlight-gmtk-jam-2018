@@ -10,6 +10,7 @@ public class MaterialAnimator : MonoBehaviour {
     private MeshRenderer meshRenderer;
 
     private MaterialAnimation currentAnimation;
+    private bool isOnForcePlay = false;
     private int currentAnimationIndex = 0;
     private float currentFrameTime = 0.0f;
 
@@ -26,16 +27,22 @@ public class MaterialAnimator : MonoBehaviour {
 
     public void SetCurrentAnimation(string name) {
 
+        if (this.isOnForcePlay) {
+            return;
+        }
+
         if (this.currentAnimation != null && name.Equals(this.currentAnimation.animationName)) {
+            this.isOnForcePlay = this.currentAnimation.forcePlayOnce;
             return;
         }
 
         this.currentAnimation = null;
 
-        foreach (MaterialAnimation animation in this.animations) {
+        foreach (MaterialAnimation matAnimation in this.animations) {
 
-            if (animation.animationName.Equals(name)) {
-                this.currentAnimation = animation;
+            if (matAnimation.animationName.Equals(name)) {
+                this.currentAnimation = matAnimation;
+                this.isOnForcePlay = this.currentAnimation.forcePlayOnce;
                 break;
             }
         }
@@ -58,13 +65,25 @@ public class MaterialAnimator : MonoBehaviour {
     private void SetNextAnimationFrame() {
         List<Sprite> spriteSheet = this.currentAnimation.spriteAnimationSheet;
 
-        this.currentAnimationIndex = (this.currentAnimationIndex + 1) % spriteSheet.Count;
+        IncreaseAnimationIndex(spriteSheet);
+        AssingNextTexture(spriteSheet);
 
+        this.currentFrameTime = 0.0f;
+    }
+
+    private void IncreaseAnimationIndex(List<Sprite> spriteSheet) {
+        this.currentAnimationIndex++;
+
+        if (this.currentAnimationIndex >= spriteSheet.Count) {
+            this.isOnForcePlay = false;
+            this.currentAnimationIndex = this.currentAnimationIndex % spriteSheet.Count;
+        }
+    }
+
+    private void AssingNextTexture(List<Sprite> spriteSheet) {
         Sprite sprite = spriteSheet[this.currentAnimationIndex];
         Texture texture = this.GetTextureOfSprite(sprite);
         this.meshRenderer.material.mainTexture = texture;
-
-        this.currentFrameTime = 0.0f;
     }
 
     private Texture GetTextureOfSprite(Sprite sprite) {
