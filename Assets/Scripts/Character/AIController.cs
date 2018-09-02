@@ -11,6 +11,8 @@ public class AIController : MonoBehaviour, IMovementProvider {
 
     [SerializeField]
     private GameObject ball;
+    [SerializeField]
+    private GameObject goal;
 
     private AIState aiState;
     private NavMeshAgent navMeshAgent;
@@ -65,7 +67,7 @@ public class AIController : MonoBehaviour, IMovementProvider {
 
     private void ThrowPickUp() {
         this.materialAnimator.SetCurrentAnimation("Throw");
-        this.thrower.Throw();
+        this.thrower.Throw(computeTarget(this.ball, this.goal));
         this.aiState = AIState.LOOKING_FOR_PICKUP;
     }
 
@@ -102,6 +104,11 @@ public class AIController : MonoBehaviour, IMovementProvider {
         }
 
         return closestPickUp;
+    }
+
+    private Vector3 computeTarget(GameObject ball, GameObject goal){
+        var delta = (ball.transform.position - goal.transform.position).normalized * -3.0f;
+        return ball.transform.position + delta;
     }
 
     private float GetDistanceTo(Transform other) {

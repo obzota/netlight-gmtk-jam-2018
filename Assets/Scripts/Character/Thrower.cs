@@ -69,6 +69,27 @@ public class Thrower : MonoBehaviour {
 
     }
 
+    public void Throw(Vector3 position){
+        if (this.Brick == null)
+            return;
+
+        if (this.cooldown > this.sinceLastThrow)
+        {
+            return;
+        }
+
+        Brick.start = this.gameObject.transform.position;
+        Brick.end = position;
+
+        this.ReadyBrickToThrow();
+
+        Brick.Launch();
+
+        this.Brick = null;
+        this.sinceLastThrow = 0.0f;
+
+    }
+
     private void ReadyBrickToThrow() {
         this.Brick.GetComponent<Rigidbody>().isKinematic = false;
         this.Brick.GetComponent<SphereCollider>().isTrigger = false;
