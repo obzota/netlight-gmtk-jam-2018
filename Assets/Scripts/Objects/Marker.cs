@@ -19,15 +19,12 @@ public class Marker : MonoBehaviour {
         Vector3 mouseWindowPosition = this.GetMouseWindowPosition();
         Ray ray = this.CreateRayFromCameraToWorld(mouseWindowPosition);
 
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit)) {
-            this.SetMarkerPosition(new Vector3(hit.point.x, hooveringHeight(), hit.point.z));
-            this.ShowMarker();
-        }
+        var t = - ray.origin.y / ray.direction.y;
+        var p = ray.origin + t * ray.direction;
 
-        else {
-            this.HideMarker();
-        }
+        this.SetMarkerPosition(new Vector3(p.x, hooveringHeight(), p.z));
+        this.ShowMarker();
+
     }
 
     private void HideMarker() {
