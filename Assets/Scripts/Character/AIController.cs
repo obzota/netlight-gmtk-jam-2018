@@ -29,6 +29,10 @@ public class AIController : MonoBehaviour, IMovementProvider {
 	// Update is called once per frame
 	void Update () {
 
+        if (this.aiState != AIState.WAIT && this.thrower.Brick != null) {
+            this.aiState = AIState.THROWING_PICKUP_AT_BALL;
+        }
+
         switch (this.aiState) {
             case AIState.LOOKING_FOR_PICKUP:
                 this.SetGoalToFindNextPickUp();
