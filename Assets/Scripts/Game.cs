@@ -26,18 +26,21 @@ public class Game : MonoBehaviour {
     // entity control
     public PlayersStart spawner;
 
-    enum GameState {BEGIN, PLAY, SCORE, PAUSE, END}
-    private GameState current = GameState.BEGIN;
+    enum GameState {MENU, BEGIN, PLAY, SCORE, PAUSE, END}
+    private GameState current = GameState.MENU;
 
     private Pause interrupt;
 
 	// Use this for initialization
 	void Start () {
         interrupt = gameObject.AddComponent<Pause>();
-        Reset();
-        GameInfo("start");
-        board.MakeAnnouncement("Game starts in 5s. Get ready!", 2.0f);
+        ball.SetActive(false);
+        WaitForPlayerInput();
 	}
+
+    void WaitForPlayerInput(){
+        this.current = GameState.MENU;
+    }
 
     public void Reset()
     {
@@ -68,6 +71,10 @@ public class Game : MonoBehaviour {
         GameInfo("score: red: " + redScore);
     }
 
+    public bool AllowCharacterControl(){
+        return current == GameState.PLAY;
+    }
+
     void KickOff(){
         ball.transform.position = new Vector3(0, 10, 0);
         ball.SetActive(true);
@@ -78,6 +85,13 @@ public class Game : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         switch(current) {
+            case GameState.MENU:
+                if (Input.GetKey(KeyCode.X))
+                {
+                    Reset();
+                    menu.Visible = false;
+                }
+                break;
             case GameState.END:
                 return;
             case GameState.PLAY:

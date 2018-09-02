@@ -5,6 +5,9 @@ using UnityEngine;
 public class Movement : MonoBehaviour, IMovementProvider {
 
     [SerializeField]
+    private Game controler;
+
+    [SerializeField]
     private float speed;
 
     private Thrower thrower;
@@ -22,6 +25,8 @@ public class Movement : MonoBehaviour, IMovementProvider {
     }
 
     void FixedUpdate () {
+        if (controler && !controler.AllowCharacterControl())
+            return;
         this.ApplyMovement();
         this.CheckForThrow();
     }
