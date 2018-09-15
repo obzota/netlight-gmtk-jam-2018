@@ -4,4 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/main-menu.unity
+    guid: 1a7a758a1c0c530489900e4cfc324197
+  - enabled: 1
+    path: Assets/Scenes/stadium-sto-henri.unity
+    guid: 450247301eabc40b98d9cf09b04c0339
+  m_configObjects: {}
